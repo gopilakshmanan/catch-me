@@ -1,0 +1,154 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<title>Know your keyboard</title>
+		<link href='http://fonts.googleapis.com/css?family=Metamorphous|Playball' rel='stylesheet' type='text/css'>
+		<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+		<script src="js/game.js" type="text/javascript"></script>
+		<script src="js/progress.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="ui.css">
+		<script>
+			
+			$(document).ready(function(){
+				setup();
+
+				$("#particle").change(function(){
+					setup();
+				});
+				$("#type").change(function(){
+					setup();
+				});
+			});
+
+			function setup(){
+				Initialize($("#particle").val(), $("#type").val());
+				
+				//every two seconds add a new particle at random location
+				setInterval(function() {
+					moveParticles();
+				}, 2000);
+
+				$('body').keydown(function(){
+					keyPress(event.keyCode);
+				});
+			}
+		</script>
+		<style>
+			button{
+				font-size: 60px;
+				color: yellow;
+				background: green;
+				margin: auto;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				padding-left: 70px;
+				padding-right: 70px;
+				border: 15px solid #416E47;
+				border-style: outset;
+			}
+			.params{
+				color: #9F9999;
+				float: right;
+				display: inline;
+				font-family: 'Playball', cursive;
+				padding: 10px;
+				border-radius: 4px;
+				border: 1px solid #C5E0D7;
+			}
+			.params select{
+				border-radius:4px;
+				background: #E3DDDD;
+				color:#888;
+				border:none;
+				outline:none;
+				display: inline-block;
+			}
+			.particle{
+				border-radius: 10px;
+				border: 3px solid #D0D0D0;
+				display: inline;
+				position:relative;
+				font-family: Verdana, 'Metamorphous', cursive;
+				font-size: 75px;
+				background: #EEF811;
+				padding: 8px;
+			}
+			.won{
+				display: block;
+				font-family: 'Metamorphous', cursive;
+				font-size: 10px;
+				text-align: center;
+				border: 0;
+				margin-top: 30px;
+				color: #88D757;
+			}
+			/**** progress bar ****/
+			#container {
+			  margin: 0 auto;
+			  width: 460px;
+			  padding: 2em;
+			  background: #fff;
+			 
+			}
+			 
+			.ui-progress-bar {
+			  margin-top: 3em;
+			  margin-bottom: 3em;
+			}
+			 
+			.ui-progress span.ui-label {
+			  font-size: 1.2em;
+			  position: absolute;
+			  right: 0;
+			  line-height: 33px;
+			  padding-right: 12px;
+			  color: rgba(0,0,0,0.6);
+			  text-shadow: rgba(255,255,255, 0.45) 0 1px 0px;
+			  white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="params">
+			Number of Particles: 
+			<select id="particle">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10" selected>10</option>
+			</select>
+
+			<br>
+
+			Type:
+			<select id="type">
+				<option value="N">Numbers</option>
+				<option value="A">Alphabets</option>
+				<option value="B" selected>Both</option>
+			</select>
+		</div>
+
+		<audio id="button1">
+			<source src="./sound/sound1.ogg" type="audio/mpeg" />Your browser does not support the audio element.
+		</audio>
+		<audio id="button2">
+			<source src="./sound/sound2.ogg" type="audio/mpeg" />Your browser does not support the audio element.
+		</audio>
+		<audio id="button3">
+			<source src="./sound/sound3.ogg" type="audio/mpeg" />Your browser does not support the audio element.
+		</audio>
+		<audio id="button4">
+			<source src="./sound/sound4.ogg" type="audio/mpeg" />Your browser does not support the audio element.
+		</audio>
+		<audio id="applauseplayer">
+			<source src="./sound/applause3.wav" type="audio/mpeg" />Your browser does not support the audio element.
+		</audio>
+	</body>
+</html>
+
