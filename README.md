@@ -8,3 +8,9 @@ Displays number and/or alphabets in boxes based on preferences. The boxes moves 
 
 1. Html
 2. jQuery 1.7.1
+
+## Docker
+
+Pull: docker pull gopilakshmanan/catch-me:v1
+
+Run: docker run -d -p 80:80 gopilakshmanan/catch-me:v1
